@@ -1,25 +1,21 @@
 #include <iostream>
 #include "graphics.h"
-#include "SDL.h"
 
 int main(int argc, char *argv[]) {
-	Graphics gfx = Graphics();
+	arc::CreateWindow("Test", 1000, 1000);
+	arc::SetBackgroundColor(arc::BLUE);
 
-	bool loop = true;
+	while (!arc::WindowCloseRequested()) {
+		arc::Update();
+		arc::ClearScreen();
+		arc::Render();
 
-	gfx.CreateWindow("Test", 1000, 1000);
-	gfx.SetBackgroundColor(gfx.BLUE);
-
-	while (loop) {
-		gfx.Update();
-		gfx.Render();
-
-		if (gfx.KeyDown('a'))
-			gfx.SetBackgroundColor(gfx.RED);
-		else if (gfx.KeyDown('s'))
-			gfx.SetBackgroundColor(gfx.BLUE);
+		if (arc::KeyDown('a'))
+			arc::SetBackgroundColor(arc::RED);
+		else if (arc::KeyDown('s'))
+			arc::SetBackgroundColor(arc::BLUE);
 	}
 	
-	gfx.Quit();
+	arc::Quit();
 	return 0;
 }
