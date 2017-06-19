@@ -1,8 +1,9 @@
 #include "agent.h"
-#include <iostream>
 
 Agent::Agent(int x, int y, arc::Color color) {
-	_location.x, _location.y = x, y;
+	_location = Location();
+	_location.x = x;
+	_location.y = y;
 	_color = color;
 }
 

@@ -16,6 +16,5 @@ void Game::RenderAgents() {
 			Agent a = *iterator;
 			// ... and render them.
 			a.Render();
-			arc::Rectangle(100, 100, 200, 200, arc::RED);
 		}
 }

@@ -61,6 +61,7 @@ namespace arc {
 
 	void arc::Update() {
 		// TODO: Events should be filtered into seperate lists here.
+		// Events should not be iterated over like in KeyDown, but instead be indexed instead.
 		SDL_FlushEvents(SDL_QUIT, SDL_LASTEVENT);
 		events = std::list<Event>();
 
