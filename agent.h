@@ -6,9 +6,9 @@
 
 class Agent {
 private:
-	Location _location;
 	arc::Color _color;
 public:
+	Location location;
 	Agent(int x, int y, arc::Color color);
 
 	// Render the agent to the screen.

@@ -1,12 +1,15 @@
 #include "agent.h"
 
+#include <iostream> // TODO: Remove this, for debug purposes only.
+
 Agent::Agent(int x, int y, arc::Color color) {
-	_location = Location();
-	_location.x = x;
-	_location.y = y;
+	location = Location();
+	location.x = x;
+	location.y = y;
 	_color = color;
 }
 
 void Agent::Render() {
-	arc::Rectangle(_location.x, _location.y, _location.x + 100, _location.y + 100, _color);
+	arc::Rectangle(location.x, location.y, location.x + 100, location.y + 100, _color);
+	std::cout << location.x << " " << location.y << std::endl;
 }
