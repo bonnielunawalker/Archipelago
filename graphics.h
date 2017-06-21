@@ -1,23 +1,30 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
 
-#include <list>
-
 #include "SDL.h"
 #include "window.h"
+#include "point2d.h"
 
 namespace arc {
-	typedef SDL_Event Event;
-
 	typedef SDL_Color Color;
 
-	// Namespace level members
+	// Namespace level members.
 	static SDL_Renderer *renderer;
 	static SDL_Window *window;
 	static Color bgColor;
-	static std::list<Event> events;
 
-	// Colors
+	// Event storage.
+	typedef SDL_Event Event;
+	static bool keyboardEvents[128];
+	static bool mouseDownEvents[5];
+	static bool quitRequested;
+
+	// Mouse button definitions.
+	const int MOUSE_LEFT = 1;
+	const int MOUSE_MIDDLE = 2;
+	const int MOUSE_RIGHT = 3;
+
+	// Color definitions.
 	const Color WHITE = { 255, 255, 255, 255 };
 	const Color BLACK = { 0, 0, 0, 255 };
 	const Color RED = { 255, 0, 0, 255 };
@@ -43,13 +50,19 @@ namespace arc {
 	void ClearScreen();
 
 	// Handle events since last call to update. Clears all old events.
-	void Update();
+	void GetInput();
 
 	// Render all data.
 	void Render();
 
 	// Returns whether the given key was down at the last call to Update().
 	bool KeyDown(char key);
+
+	// Returns whether the given mouse button was down at the last call to Update().
+	bool MouseButtonDown(char button);
+
+	// Returns a Point2D with the x and y position of the mouse relative to the window.
+	Point2D MousePosition();
 
 	// Returns whether the user requested the window be closed.
 	bool WindowCloseRequested();

@@ -1,29 +1,35 @@
-#include <iostream>
 #include "graphics.h"
 #include "game.h"
-#include "agent.h"
+#include "entity.h"
+
+#include <iostream>
 
 int main(int argc, char *argv[]) {
 	Game game = Game();
-	Agent a = Agent(500, 500, arc::WHITE);
-	game.AddAgent(&a);
+	Entity *e = new Entity(500, 500, arc::WHITE);
+	game.AddEntity(e);
 	arc::CreateWindow("Test", 1000, 1000);
 	arc::SetBackgroundColor(arc::BLUE);
 
+	bool set = false;
+
 	while (!arc::WindowCloseRequested()) {
-		arc::Update();
+		arc::GetInput();
 
 		if (arc::KeyDown('a'))
-			a.location.x--;			
+			e->location.x--;			
 		if (arc::KeyDown('d'))
-			a.location.x++;
+			e->location.x++;
 		if (arc::KeyDown('w'))
-			a.location.y--;
+			e->location.y--;
 		if (arc::KeyDown('s'))
-			a.location.y++;
+			e->location.y++;
+
+		if (arc::MouseButtonDown(arc::MOUSE_LEFT))
+			game.AddEntity(new Entity(arc::MousePosition(), arc::GREEN));
 
 		arc::ClearScreen();
-		game.RenderAgents();
+		game.RenderEntities();
 		arc::Render();
 	}
 	

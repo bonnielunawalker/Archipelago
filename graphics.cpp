@@ -2,7 +2,10 @@
 #include <string>
 #include <list>
 
+#include <iostream> // TODO: Remove this, for debugging purposes only.
+
 #include "graphics.h"
+
 namespace arc {
 	void arc::Init() {
 		if (SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -10,8 +13,6 @@ namespace arc {
 			msg += SDL_GetError();
 			throw std::runtime_error(msg);
 		}
-
-		events = std::list<arc::Event>();
 	}
 
 	void arc::CreateWindow(char* name, int sizeX, int sizeY) {
@@ -59,15 +60,25 @@ namespace arc {
 		SDL_RenderClear(renderer);
 	}
 
-	void arc::Update() {
-		// TODO: Events should be filtered into seperate lists here.
-		// Events should not be iterated over like in KeyDown, but instead be indexed instead.
-		SDL_FlushEvents(SDL_QUIT, SDL_LASTEVENT);
-		events = std::list<Event>();
-
-		Event event;
-		while (SDL_PollEvent(&event)) {
-			events.push_back(event);
+	void arc::GetInput() {
+		Event e;
+		while (SDL_PollEvent(&e)) {
+			switch (e.type) {
+			case SDL_KEYDOWN :
+				keyboardEvents[e.key.keysym.sym] = true;
+				break;
+			case SDL_KEYUP :
+				keyboardEvents[e.key.keysym.sym] = false;
+				break;
+			case SDL_MOUSEBUTTONDOWN :
+				mouseDownEvents[e.button.button] = true;
+				break;
+			case SDL_MOUSEBUTTONUP :
+				mouseDownEvents[e.button.button] = false;
+				break;
+			case SDL_QUIT :
+				quitRequested = true;
+			}
 		}
 	}
 
@@ -76,26 +87,21 @@ namespace arc {
 	}
 
 	bool arc::KeyDown(char key) {
-		if (!events.empty())
-			for (std::list<Event>::const_iterator iterator = events.begin(); iterator != events.end(); ++iterator) {
-				Event e = *iterator;
-				if (e.type == SDL_KEYDOWN)
-					if (e.key.keysym.sym == key)
-						return true;
-			}
+		return keyboardEvents[key];
+	}
 
-		return false;
+	bool arc::MouseButtonDown(char button) {
+		return mouseDownEvents[button];
 	}
 
 	bool arc::WindowCloseRequested() {
-		if (!events.empty())
-			for (std::list<Event>::const_iterator iterator = events.begin(); iterator != events.end(); ++iterator) {
-				Event e = *iterator;
-				if (e.type == SDL_QUIT)
-					return true;
-			}
+		return quitRequested;
+	}
 
-		return false;
+	Point2D arc::MousePosition() {
+		Point2D pnt = Point2D();
+		SDL_GetMouseState(&pnt.x, &pnt.y);
+		return pnt;
 	}
 
 	void arc::Quit() {

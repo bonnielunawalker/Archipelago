@@ -1,20 +1,21 @@
 #include "game.h"
 
+#include <iostream> // TODO: Remove this, for debugging purposes only.
+
 Game::Game()
 {
-	_agents = std::list<Agent*>();
+	_entities = std::list<Entity*>();
 }
 
-void Game::AddAgent(Agent *agent) {
-	_agents.push_back(agent);
+void Game::AddEntity(Entity *agent) {
+	_entities.push_back(agent);
 }
 
-void Game::RenderAgents() {
-	if (!_agents.empty())
-		// Loop through all agents in the game...
-		for (std::list<Agent*>::const_iterator iterator = _agents.begin(); iterator != _agents.end(); ++iterator) {
-			Agent a = **iterator;
+void Game::RenderEntities() {
+	if (!_entities.empty())
+		// Loop through all entities in the game...
+		for (Entity *e : _entities) {
 			// ... and render them.
-			a.Render();
+			e->Render();
 		}
 }
