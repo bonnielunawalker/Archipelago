@@ -11,7 +11,7 @@ public:
 	Game();
 
 	// Add an entity to the game world.
-	void AddEntity(Entity *entity);
+	void AddEntity(Entity* entity);
 
 	// Render all game entities.
 	void RenderEntities();

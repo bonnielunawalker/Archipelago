@@ -35,6 +35,41 @@ namespace arc {
 		bgColor = BLACK;
 	}
 
+	int arc::GetFramerate() {
+		int frametimesIndex;
+		int getTicks;
+		
+		// Get the frame we need to add next.
+		frametimesIndex = frameCount % FRAME_VALUES;
+
+		getTicks = SDL_GetTicks();
+
+		// Save frame data.
+		frametimes[frametimesIndex] = getTicks - frametimeLast;
+		frametimeLast = getTicks;
+
+		// Increment the number of frames measured since the start of the application.
+		frameCount++;
+		int count;
+
+		if (frameCount < FRAME_VALUES)
+			count = frameCount;
+		else
+			count = FRAME_VALUES;
+
+		// Do the actual maths to find out the average fps over FRAME_VALUES number of frames.
+		float framesPerSecond = 0;
+		for (int i = 0; i < count; i++)
+			framesPerSecond += frametimes[i];
+
+		framesPerSecond /= count;
+
+		// Format the result.
+		framesPerSecond = 1000.f / framesPerSecond;
+
+		return (int)framesPerSecond;
+	}
+
 	void arc::Point(int x, int y, Color color) {
 		SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 		SDL_RenderDrawPoint(renderer, x, y);
@@ -51,6 +86,52 @@ namespace arc {
 		SDL_RenderDrawRect(renderer, &rect);
 	}
 
+	void arc::Circle(int x0, int y0, int radius, Color color) {
+		// For reference, this method uses the midpoint circle algorithm.
+		int x = radius;
+		int y = 0;
+		int err = 0;
+
+		SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+
+		while (x >= y) {
+			SDL_RenderDrawPoint(renderer, x0 + x, y0 + y);
+			SDL_RenderDrawPoint(renderer, x0 + y, y0 + x);
+			SDL_RenderDrawPoint(renderer, x0 - y, y0 + x);
+			SDL_RenderDrawPoint(renderer, x0 - x, y0 + y);
+			SDL_RenderDrawPoint(renderer, x0 - x, y0 - y);
+			SDL_RenderDrawPoint(renderer, x0 - y, y0 - x);
+			SDL_RenderDrawPoint(renderer, x0 + y, y0 - x);
+			SDL_RenderDrawPoint(renderer, x0 + x, y0 - y);
+
+			y++;
+			if (err <= 0)
+				err += 2 * y + 1;
+			else {
+				x--;
+				err += 2 * (y - x) + 1;
+			}
+		}
+	}
+
+	void Text(char* text, int x, int y, Font* font, Color color) {
+		SDL_Surface* msgSurface = TTF_RenderText_Solid(font, text, color);
+
+		// TODO: Need a better way to work with textures. Consider arc::Texture class?
+		SDL_Texture* msg = SDL_CreateTextureFromSurface(renderer, msgSurface);
+
+		SDL_Rect msgRect;
+		msgRect.x = x;
+		msgRect.y = y;
+		msgRect.w = 100;
+		msgRect.h = 100;
+
+		SDL_RenderCopy(renderer, msg, NULL, &msgRect);
+
+		// TODO: Surface and texture should be freed to avoid memory leak.
+		// Consider storing text in an array and rendering it all at once in a dedicated method?
+	}
+
 	void arc::SetBackgroundColor(Color color) {
 		bgColor = color;
 	}
@@ -65,7 +146,7 @@ namespace arc {
 		while (SDL_PollEvent(&e)) {
 			switch (e.type) {
 			case SDL_KEYDOWN :
-				keyboardEvents[e.key.keysym.sym] = true;
+				keyboardEvents[e.key.keysym.sym] = true; // TODO: Throws an exception if a mod key is pressed.
 				break;
 			case SDL_KEYUP :
 				keyboardEvents[e.key.keysym.sym] = false;

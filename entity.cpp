@@ -17,5 +17,5 @@ Entity::Entity(arc::Point2D loc, arc::Color color) {
 }
 
 void Entity::Render() {
-	arc::Rectangle(location.x, location.y, location.x + 100, location.y + 100, _color);
+	arc::Circle(location.x, location.y, 100, _color);
 }

@@ -4,12 +4,12 @@
 
 #include <iostream>
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
 	Game game = Game();
-	Entity *e = new Entity(500, 500, arc::WHITE);
+	Entity* e = new Entity(500, 500, arc::WHITE);
 	game.AddEntity(e);
 	arc::CreateWindow("Test", 1000, 1000);
-	arc::SetBackgroundColor(arc::BLUE);
+	arc::SetBackgroundColor(arc::BLACK);
 
 	bool set = false;
 
@@ -27,9 +27,15 @@ int main(int argc, char *argv[]) {
 
 		if (arc::MouseButtonDown(arc::MOUSE_LEFT))
 			game.AddEntity(new Entity(arc::MousePosition(), arc::GREEN));
+		if (arc::MouseButtonDown(arc::MOUSE_RIGHT))
+			game.AddEntity(new Entity(arc::MousePosition(), arc::RED));
+		if (arc::MouseButtonDown(arc::MOUSE_MIDDLE))
+			game.AddEntity(new Entity(arc::MousePosition(), arc::BLUE));
 
 		arc::ClearScreen();
+		arc::Text("test", 2, 2, arc::FONT_MONO, arc::GREEN);
 		game.RenderEntities();
+		// arc::Text((char*)arc::GetFramerate(), 2, 2, arc::FONT_MONO, arc::GREEN);
 		arc::Render();
 	}
 	
