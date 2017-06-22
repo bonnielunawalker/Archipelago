@@ -1,16 +1,19 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
 
+#include <list>
+
 #include "SDL.h"
 #include "SDL_ttf.h"
-#include "window.h"
+#include "colors.h"
 #include "point2d.h"
+#include "text.h"
 
 namespace arc {
 	// Namespace level members.
 	static SDL_Renderer* renderer;
 	static SDL_Window* window;
-	typedef SDL_Color Color;
+	
 	static Color bgColor;
 
 	// Event storage.
@@ -24,13 +27,6 @@ namespace arc {
 	const int MOUSE_MIDDLE = 2;
 	const int MOUSE_RIGHT = 3;
 
-	// Color definitions.
-	const Color WHITE = { 255, 255, 255, 255 };
-	const Color BLACK = { 0, 0, 0, 255 };
-	const Color RED = { 255, 0, 0, 255 };
-	const Color GREEN = { 0, 255, 0, 255 };
-	const Color BLUE = { 0, 0, 255, 255 };
-
 	// Framerate counter fields.
 	const int FRAME_VALUES = 50;
 	static int frametimes[FRAME_VALUES];
@@ -39,8 +35,8 @@ namespace arc {
 
 	// Text rendering definitions.
 	typedef TTF_Font Font;
-	static Font* FONT_MONO = TTF_OpenFont("Mono.ttf", 11);
-	static Font* FONT_SANS = TTF_OpenFont("Sans.ttf", 11);
+	extern Font* FONT_MONO;
+	static std::list<TextObject*> textObjects;
 
 	// Initialise SDL and make sure everything's working.
 	void Init();

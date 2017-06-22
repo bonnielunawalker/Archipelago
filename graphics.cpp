@@ -7,12 +7,27 @@
 #include "graphics.h"
 
 namespace arc {
+	// Forward declaration of extern members.
+	Font* FONT_MONO;
+
 	void arc::Init() {
 		if (SDL_Init(SDL_INIT_VIDEO) < 0) {
-			std::string msg = "SDL was not initialised with the following error:\n";
+			std::string msg = "SDL could not be initialised due to the following error:\n";
 			msg += SDL_GetError();
-			throw std::runtime_error(msg);
+			std::cerr << msg << std::endl;
+			exit(-1);
 		}
+
+		if (TTF_Init() < 0) {
+			std::string msg = "TTF could not be initialised due to the following error:\n";
+			msg += TTF_GetError();
+			std::cerr << msg << std::endl;
+			exit(-1);
+		}
+
+		FONT_MONO = TTF_OpenFont("C:\\mono.ttf", 11); // TODO: Change file path, this is just for debugging font loading.
+
+		std::cout << "Finished intialization\nApplication running in " << SDL_GetBasePath() << std::endl;
 	}
 
 	void arc::CreateWindow(char* name, int sizeX, int sizeY) {
@@ -21,14 +36,14 @@ namespace arc {
 		tempWindow = SDL_CreateWindow(name, 100, 100, sizeX, sizeY, SDL_WINDOW_OPENGL);
 
 		if (tempWindow == NULL)
-			throw std::exception("New SDL window could not be created.");
+			std::cerr << "New SDL window could not be created." << std::endl;
 
 		// Create a renderer for the window.
 		SDL_Renderer *tempRenderer;
 		tempRenderer = SDL_CreateRenderer(tempWindow, -1, 0);
 
 		if (tempRenderer == NULL)
-			throw std::runtime_error("Renderer for the window could not be created");
+			std::cerr << "Renderer for the window could not be created" << std::endl;
 
 		window = tempWindow;
 		renderer = tempRenderer;
@@ -115,21 +130,8 @@ namespace arc {
 	}
 
 	void Text(char* text, int x, int y, Font* font, Color color) {
-		SDL_Surface* msgSurface = TTF_RenderText_Solid(font, text, color);
-
-		// TODO: Need a better way to work with textures. Consider arc::Texture class?
-		SDL_Texture* msg = SDL_CreateTextureFromSurface(renderer, msgSurface);
-
-		SDL_Rect msgRect;
-		msgRect.x = x;
-		msgRect.y = y;
-		msgRect.w = 100;
-		msgRect.h = 100;
-
-		SDL_RenderCopy(renderer, msg, NULL, &msgRect);
-
-		// TODO: Surface and texture should be freed to avoid memory leak.
-		// Consider storing text in an array and rendering it all at once in a dedicated method?
+		TextObject* newText = new TextObject(text, x, y, arc::FONT_MONO, color, renderer);
+		textObjects.push_back(newText);
 	}
 
 	void arc::SetBackgroundColor(Color color) {
@@ -164,6 +166,11 @@ namespace arc {
 	}
 
 	void arc::Render() {
+		if (!textObjects.empty()) {
+			for (TextObject* t : textObjects)
+				t->Render(renderer);
+		}
+
 		SDL_RenderPresent(renderer);
 	}
 
@@ -186,6 +193,7 @@ namespace arc {
 	}
 
 	void arc::Quit() {
+		TTF_Quit();
 		SDL_Quit();
 	}
 }

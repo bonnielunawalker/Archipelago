@@ -5,13 +5,15 @@
 #include <iostream>
 
 int main(int argc, char* argv[]) {
+	// Initialise archipelago and open a window.
+	arc::Init();
+	std::cout << arc::FONT_MONO << std::endl;
+	arc::CreateWindow("arc application", 1000, 1000);
+	arc::SetBackgroundColor(arc::BLACK);
+
 	Game game = Game();
 	Entity* e = new Entity(500, 500, arc::WHITE);
 	game.AddEntity(e);
-	arc::CreateWindow("Test", 1000, 1000);
-	arc::SetBackgroundColor(arc::BLACK);
-
-	bool set = false;
 
 	while (!arc::WindowCloseRequested()) {
 		arc::GetInput();
@@ -33,9 +35,10 @@ int main(int argc, char* argv[]) {
 			game.AddEntity(new Entity(arc::MousePosition(), arc::BLUE));
 
 		arc::ClearScreen();
-		arc::Text("test", 2, 2, arc::FONT_MONO, arc::GREEN);
+		arc::Text("test", 2, 900, arc::FONT_MONO, arc::GREEN);
+		//arc::Text((char*)arc::GetFramerate(), 2, 2, arc::FONT_MONO, arc::GREEN);
 		game.RenderEntities();
-		// arc::Text((char*)arc::GetFramerate(), 2, 2, arc::FONT_MONO, arc::GREEN);
+		
 		arc::Render();
 	}
 	
