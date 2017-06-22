@@ -13,6 +13,8 @@ namespace arc {
 	public:
 		TextObject(char* text, int x, int y, TTF_Font* font, SDL_Color color, SDL_Renderer* renderer);
 
+		~TextObject();
+
 		// Render the text to the screen.
 		void Render(SDL_Renderer* renderer);
 	};

@@ -7,7 +7,7 @@
 #include "SDL_ttf.h"
 #include "colors.h"
 #include "point2d.h"
-#include "text.h"
+#include "textObject.h"
 
 namespace arc {
 	// Namespace level members.

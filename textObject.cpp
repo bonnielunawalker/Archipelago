@@ -1,4 +1,4 @@
-#include "text.h"
+#include "textObject.h"
 #include <iostream>
 #include "graphics.h"
 
@@ -17,6 +17,11 @@ namespace arc {
 
 			// TODO: Look at SDL FontCache library to improve performance.
 		}		
+	}
+
+	TextObject::~TextObject() {
+		SDL_FreeSurface(_surface);
+		SDL_DestroyTexture(_texture);
 	}
 
 	void TextObject::Render(SDL_Renderer* renderer) {

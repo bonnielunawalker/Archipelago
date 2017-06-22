@@ -167,8 +167,11 @@ namespace arc {
 
 	void arc::Render() {
 		if (!textObjects.empty()) {
-			for (TextObject* t : textObjects)
+			for (TextObject* t : textObjects) {
 				t->Render(renderer);
+				delete t;
+			}
+			textObjects.clear();
 		}
 
 		SDL_RenderPresent(renderer);

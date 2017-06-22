@@ -7,7 +7,6 @@
 int main(int argc, char* argv[]) {
 	// Initialise archipelago and open a window.
 	arc::Init();
-	std::cout << arc::FONT_MONO << std::endl;
 	arc::CreateWindow("arc application", 1000, 1000);
 	arc::SetBackgroundColor(arc::BLACK);
 
