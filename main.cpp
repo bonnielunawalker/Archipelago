@@ -8,7 +8,7 @@
 int main(int argc, char* argv[]) {
 	// Initialise archipelago and open a window.
 	arc::Init();
-	arc::CreateWindow("arc application", 1000, 1000);
+	arc::CreateWindow("arc application", 1920, 1080);
 	arc::SetBackgroundColor(arc::BLACK);
 
 	Game game = Game();
@@ -18,7 +18,7 @@ int main(int argc, char* argv[]) {
 		arc::GetInput();
 
 		if (arc::KeyDown('a'))
-			e->location.x--;			
+			e->location.x--;
 		if (arc::KeyDown('d'))
 			e->location.x++;
 		if (arc::KeyDown('w'))

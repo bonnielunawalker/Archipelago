@@ -57,7 +57,7 @@ namespace arc {
 	void Rectangle(int x1, int y1, int x2, int y2, Color color);
 
 	// Draws a circle to the screen with at the given central x and y coordinates with the given radius.
-	void Circle(int x, int y, int radius, Color color);
+	void Circle(int x1, int y1, int r, Color color);
 
 	// Render the given string to the screen using the given font and color to the given x and y position.
 	void Text(char* text, int x, int y, Font* font, Color color);

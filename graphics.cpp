@@ -110,30 +110,33 @@ namespace arc {
 		SDL_RenderDrawRect(renderer, &rect);
 	}
 
-	void Circle(int x0, int y0, int radius, Color color) {
-		// For reference, this method uses the midpoint circle algorithm.
-		int x = radius;
-		int y = 0;
-		int err = 0;
-
+	void Circle(int x1, int y1, int radius, Color color) {
+		// Draw a circle using Bresenham's circle drawing method.
 		SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 
-		while (x >= y) {
-			SDL_RenderDrawPoint(renderer, x0 + x, y0 + y);
-			SDL_RenderDrawPoint(renderer, x0 + y, y0 + x);
-			SDL_RenderDrawPoint(renderer, x0 - y, y0 + x);
-			SDL_RenderDrawPoint(renderer, x0 - x, y0 + y);
-			SDL_RenderDrawPoint(renderer, x0 - x, y0 - y);
-			SDL_RenderDrawPoint(renderer, x0 - y, y0 - x);
-			SDL_RenderDrawPoint(renderer, x0 + y, y0 - x);
-			SDL_RenderDrawPoint(renderer, x0 + x, y0 - y);
+		int x2 = 0;
+		int y2 = radius;
+		int p = 3 - (2 * radius);
 
-			y++;
-			if (err <= 0)
-				err += 2 * y + 1;
-			else {
-				x--;
-				err += 2 * (y - x) + 1;
+		while (x2 <= y2)
+		{
+			SDL_RenderDrawPoint(renderer, x1 + x2, y1 + y2);
+			SDL_RenderDrawPoint(renderer, x1 - x2, y1 + y2);
+			SDL_RenderDrawPoint(renderer, x1 + x2, y1 - y2);
+			SDL_RenderDrawPoint(renderer, x1 - x2, y1 - y2);
+			SDL_RenderDrawPoint(renderer, x1 + y2, y1 + x2);
+			SDL_RenderDrawPoint(renderer, x1 + y2, y1 - x2);
+			SDL_RenderDrawPoint(renderer, x1 - y2, y1 + x2);
+			SDL_RenderDrawPoint(renderer, x1 - y2, y1 - x2);
+
+			x2 = x2 + 1;
+
+			if (p<0)
+				p = p + 4 * (x2)+6;
+			else
+			{
+				p = p + 4 * (x2 - y2) + 10;
+				y2 = y2 - 1;
 			}
 		}
 	}
