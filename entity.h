@@ -3,10 +3,12 @@
 
 #include "graphics.h"
 #include "point2d.h"
+#include <list>
 
 class Entity {
 private:
 	arc::Color _color;
+	std::list<arc::Point2D> _shape;
 public:
 	arc::Point2D location;
 	Entity(int x, int y, arc::Color color);

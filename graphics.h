@@ -53,11 +53,18 @@ namespace arc {
 	// Draws a single pixel to the screen at the given x and y coordinates.
 	void Point(int x, int y, Color color);
 
+	// Draws a line between two x and y points.
+	void Line(int x1, int y1, int x2, int y2, Color color);
+
 	// Draws a rectangle to the screen with the given top left and bottom right coordinates.
 	void Rectangle(int x1, int y1, int x2, int y2, Color color);
 
 	// Draws a circle to the screen with at the given central x and y coordinates with the given radius.
 	void Circle(int x1, int y1, int r, Color color);
+
+	// Render a polygon of arbitrary number of points from the array of points provided.
+	// Note that points are considered relative to the x and y coordinates given.
+	void Polygon(std::list<Point2D> points, int x, int y, Color color);
 
 	// Render the given string to the screen using the given font and color to the given x and y position.
 	void Text(char* text, int x, int y, Font* font, Color color);

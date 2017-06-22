@@ -99,6 +99,12 @@ namespace arc {
 		SDL_RenderDrawPoint(renderer, x, y);
 	}
 
+	void Line(int x1, int y1, int x2, int y2, Color color) {
+		SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+
+		SDL_RenderDrawLine(renderer, x1, y1, x2, y2);
+	}
+
 	void Rectangle(int x1, int y1, int x2, int y2, Color color) {
 		SDL_Rect rect;
 		rect.x = x1;
@@ -139,6 +145,28 @@ namespace arc {
 				y2 = y2 - 1;
 			}
 		}
+	}
+
+	void Polygon(std::list<Point2D> points, int x, int y, Color color) {
+		if (!points.empty()) {
+			std::list<Point2D>::iterator b = points.begin();
+			std::list<Point2D>::iterator e = --points.end();
+
+			// Draw all lines except the last one.
+			while (b != e) {
+				Point2D pnt1 = *b;
+				Point2D pnt2 = *++b;
+
+				Line(x + pnt1.x, y + pnt1.y, x + pnt2.x, y + pnt2.y, color);
+				std::cout << "done!" << std::endl;
+			}
+
+			// Draw the last line.
+			Point2D pnt1 = points.back();
+			Point2D pnt2 = points.front();
+
+			Line(x + pnt1.x, y + pnt1.y, x + pnt2.x, y + pnt2.y, color);
+		}	
 	}
 
 	void Text(char* text, int x, int y, Font* font, Color color) {
