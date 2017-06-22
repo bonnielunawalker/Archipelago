@@ -1,6 +1,7 @@
 #include "game.h"
 
 #include <iostream> // TODO: Remove this, for debugging purposes only.
+#include <sstream>
 
 Game::Game()
 {
@@ -19,7 +20,10 @@ void Game::RenderEntities() {
 			e->Render();
 		}
 
-	std::cout << "Number of entities: " << _entities.size() << std::endl;
+	std::stringstream stream;
+	stream << "Number of entities: " << _entities.size();
+
+	arc::Text(stream.str(), 2, 11, arc::FONT_MONO, arc::GREEN);
 
 	// TODO: Profile this. A faster way of iterating through all entities probably exists.
 }

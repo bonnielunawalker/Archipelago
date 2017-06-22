@@ -1,10 +1,12 @@
 #include "textObject.h"
 #include <iostream>
 #include "graphics.h"
+#include <stdexcept>
 
 namespace arc {
 	TextObject::TextObject(const char* text, int x, int y, TTF_Font* font, SDL_Color color, SDL_Renderer* renderer) {
-		_surface = TTF_RenderText_Solid(font, text, color);
+		if (!(_surface = TTF_RenderText_Solid(font, text, color)))
+			throw std::runtime_error("Could not create new text object: " + std::string(TTF_GetError()));
 
 		// TODO: Need a better way to work with textures. Consider arc::Texture class?
 		_texture = SDL_CreateTextureFromSurface(renderer, _surface);

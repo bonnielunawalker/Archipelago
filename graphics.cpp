@@ -12,7 +12,7 @@ namespace arc {
 	// Forward declaration of extern members.
 	Font* FONT_MONO;
 
-	void arc::Init() {
+	void Init() {
 		if (SDL_Init(SDL_INIT_VIDEO) < 0) {
 			std::string msg = "SDL could not be initialised due to the following error:\n";
 			msg += SDL_GetError();
@@ -32,7 +32,7 @@ namespace arc {
 		std::cout << "Finished intialization\nApplication running in " << SDL_GetBasePath() << std::endl;
 	}
 
-	void arc::CreateWindow(char* name, int sizeX, int sizeY) {
+	void CreateWindow(char* name, int sizeX, int sizeY) {
 		// Create the window.
 		SDL_Window *tempWindow;
 		tempWindow = SDL_CreateWindow(name, 100, 100, sizeX, sizeY, SDL_WINDOW_OPENGL);
@@ -52,7 +52,7 @@ namespace arc {
 		bgColor = BLACK;
 	}
 
-	int arc::GetFramerate() {
+	int GetFramerate() {
 		int frametimesIndex;
 		int getTicks;
 		
@@ -84,10 +84,6 @@ namespace arc {
 		// Format the result.
 		framesPerSecond = 1000.f / framesPerSecond;
 
-		// If this is the first time GetFramerate() has been called, return an fps of 0.
-		if (frameCount == 1)
-			return 0;
-
 		return (int)framesPerSecond;
 	}
 
@@ -98,12 +94,12 @@ namespace arc {
 		Text(stream.str(), 2, 2, FONT_MONO, GREEN);
 	}
 
-	void arc::Point(int x, int y, Color color) {
+	void Point(int x, int y, Color color) {
 		SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 		SDL_RenderDrawPoint(renderer, x, y);
 	}
 
-	void arc::Rectangle(int x1, int y1, int x2, int y2, Color color) {
+	void Rectangle(int x1, int y1, int x2, int y2, Color color) {
 		SDL_Rect rect;
 		rect.x = x1;
 		rect.y = y1;
@@ -114,7 +110,7 @@ namespace arc {
 		SDL_RenderDrawRect(renderer, &rect);
 	}
 
-	void arc::Circle(int x0, int y0, int radius, Color color) {
+	void Circle(int x0, int y0, int radius, Color color) {
 		// For reference, this method uses the midpoint circle algorithm.
 		int x = radius;
 		int y = 0;
@@ -144,38 +140,55 @@ namespace arc {
 
 	void Text(char* text, int x, int y, Font* font, Color color) {
 		std::string s = std::string(text);
+
+		// Make sure the string can actually be rendered.
+		// Exception is not needed since a string with no content would be rendered as blank anyway.
+		if (s.length() == 0) {
+			std::cerr << "Text fields of length 0 cannot be rendered." << std::endl;
+			return;
+		}
+
 		TextObject* newText = new TextObject(s.c_str(), x, y, arc::FONT_MONO, color, renderer);
 		textObjects.push_back(newText);
 	}
 
 	void Text(int text, int x, int y, Font* font, Color color) {
-		std::stringstream stream;
-		stream << text;
-		std::string s = stream.str();
+		std::string s = std::to_string(text);
+
+		if (s.length() == 0) {
+			std::cerr << "Text fields of length 0 cannot be rendered." << std::endl;
+			return;
+		}
+
 		TextObject* newText = new TextObject(s.c_str(), x, y, arc::FONT_MONO, color, renderer);
 		textObjects.push_back(newText);
 	}
 
 	void Text(std::string text, int x, int y, Font* font, Color color) {
+		if (text.length() == 0) {
+			std::cerr << "Text fields of length 0 cannot be rendered." << std::endl;
+			return;
+		}
+
 		TextObject* newText = new TextObject(text.c_str(), x, y, arc::FONT_MONO, color, renderer);
 		textObjects.push_back(newText);
 	}
 
-	void arc::SetBackgroundColor(Color color) {
+	void SetBackgroundColor(Color color) {
 		bgColor = color;
 	}
 
-	void arc::ClearScreen() {
+	void ClearScreen() {
 		SDL_SetRenderDrawColor(renderer, bgColor.r, bgColor.g, bgColor.b, bgColor.a);
 		SDL_RenderClear(renderer);
 	}
 
-	void arc::GetInput() {
+	void GetInput() {
 		Event e;
 		while (SDL_PollEvent(&e)) {
 			switch (e.type) {
 			case SDL_KEYDOWN :
-				keyboardEvents[e.key.keysym.sym] = true; // TODO: Throws an exception if a mod key is pressed.
+				keyboardEvents[e.key.keysym.sym] = true; // TODO: Currently throws an exception if a mod key is pressed.
 				break;
 			case SDL_KEYUP :
 				keyboardEvents[e.key.keysym.sym] = false;
@@ -192,7 +205,7 @@ namespace arc {
 		}
 	}
 
-	void arc::Render() {
+	void Render() {
 		if (!textObjects.empty()) {
 			for (TextObject* t : textObjects) {
 				t->Render(renderer);
@@ -204,25 +217,25 @@ namespace arc {
 		SDL_RenderPresent(renderer);
 	}
 
-	bool arc::KeyDown(char key) {
+	bool KeyDown(char key) {
 		return keyboardEvents[key];
 	}
 
-	bool arc::MouseButtonDown(char button) {
+	bool MouseButtonDown(char button) {
 		return mouseDownEvents[button];
 	}
 
-	bool arc::WindowCloseRequested() {
+	bool WindowCloseRequested() {
 		return quitRequested;
 	}
 
-	Point2D arc::MousePosition() {
+	Point2D MousePosition() {
 		Point2D pnt = Point2D();
 		SDL_GetMouseState(&pnt.x, &pnt.y);
 		return pnt;
 	}
 
-	void arc::Quit() {
+	void Quit() {
 		TTF_Quit();
 		SDL_Quit();
 	}

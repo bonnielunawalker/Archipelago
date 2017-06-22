@@ -34,7 +34,6 @@ int main(int argc, char* argv[]) {
 			game.AddEntity(new Entity(arc::MousePosition(), arc::BLUE));
 
 		arc::ClearScreen();
-		arc::Text("test", 2, 900, arc::FONT_MONO, arc::GREEN);
 		arc::ShowFPS();
 		game.RenderEntities();
 		
