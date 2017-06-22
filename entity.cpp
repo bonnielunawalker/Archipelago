@@ -7,17 +7,21 @@ Entity::Entity(int x, int y, arc::Color color) {
 	_color = color;
 
 	_shape = {
-		arc::Point2D( 0, -6),
-		arc::Point2D(-6,  10),
-		arc::Point2D( 6,  10)
+		arc::Point2D(  0,  -12),
+		arc::Point2D(-12,   20),
+		arc::Point2D( 12,   20)
 	};
 }
 
 Entity::Entity(arc::Point2D loc, arc::Color color) {
-	location = arc::Point2D();
-	location.x = loc.x;
-	location.y = loc.y;
+	location = arc::Point2D(loc.x, loc.y);
 	_color = color;
+
+	_shape = {
+		arc::Point2D(0,  -12),
+		arc::Point2D(-12,   20),
+		arc::Point2D(12,   20)
+	};
 }
 
 void Entity::Render() {

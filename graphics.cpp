@@ -148,6 +148,8 @@ namespace arc {
 	}
 
 	void Polygon(std::list<Point2D> points, int x, int y, Color color) {
+		SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+
 		if (!points.empty()) {
 			std::list<Point2D>::iterator b = points.begin();
 			std::list<Point2D>::iterator e = --points.end();
@@ -156,9 +158,7 @@ namespace arc {
 			while (b != e) {
 				Point2D pnt1 = *b;
 				Point2D pnt2 = *++b;
-
 				Line(x + pnt1.x, y + pnt1.y, x + pnt2.x, y + pnt2.y, color);
-				std::cout << "done!" << std::endl;
 			}
 
 			// Draw the last line.
@@ -166,7 +166,9 @@ namespace arc {
 			Point2D pnt2 = points.front();
 
 			Line(x + pnt1.x, y + pnt1.y, x + pnt2.x, y + pnt2.y, color);
-		}	
+		}
+		else
+			std::cerr << "Shapes with no points cannot be drawn." << std::endl;
 	}
 
 	void Text(char* text, int x, int y, Font* font, Color color) {
