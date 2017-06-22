@@ -11,7 +11,7 @@ namespace arc {
 		SDL_Texture* _texture;
 		SDL_Rect _rect;
 	public:
-		TextObject(char* text, int x, int y, TTF_Font* font, SDL_Color color, SDL_Renderer* renderer);
+		TextObject(const char* text, int x, int y, TTF_Font* font, SDL_Color color, SDL_Renderer* renderer);
 
 		~TextObject();
 

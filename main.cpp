@@ -3,6 +3,7 @@
 #include "entity.h"
 
 #include <iostream>
+#include <string>
 
 int main(int argc, char* argv[]) {
 	// Initialise archipelago and open a window.
@@ -13,7 +14,6 @@ int main(int argc, char* argv[]) {
 	Game game = Game();
 	Entity* e = new Entity(500, 500, arc::WHITE);
 	game.AddEntity(e);
-
 	while (!arc::WindowCloseRequested()) {
 		arc::GetInput();
 
@@ -35,7 +35,7 @@ int main(int argc, char* argv[]) {
 
 		arc::ClearScreen();
 		arc::Text("test", 2, 900, arc::FONT_MONO, arc::GREEN);
-		//arc::Text((char*)arc::GetFramerate(), 2, 2, arc::FONT_MONO, arc::GREEN);
+		arc::ShowFPS();
 		game.RenderEntities();
 		
 		arc::Render();

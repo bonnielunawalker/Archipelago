@@ -1,6 +1,8 @@
 #include <stdexcept>
 #include <string>
 #include <list>
+#include <sstream>
+#include <string>
 
 #include <iostream> // TODO: Remove this, for debugging purposes only.
 
@@ -82,7 +84,18 @@ namespace arc {
 		// Format the result.
 		framesPerSecond = 1000.f / framesPerSecond;
 
+		// If this is the first time GetFramerate() has been called, return an fps of 0.
+		if (frameCount == 1)
+			return 0;
+
 		return (int)framesPerSecond;
+	}
+
+	void ShowFPS() {
+		int fps = GetFramerate();
+		std::stringstream stream;
+		stream << "FPS: " << fps;
+		Text(stream.str(), 2, 2, FONT_MONO, GREEN);
 	}
 
 	void arc::Point(int x, int y, Color color) {
@@ -130,7 +143,21 @@ namespace arc {
 	}
 
 	void Text(char* text, int x, int y, Font* font, Color color) {
-		TextObject* newText = new TextObject(text, x, y, arc::FONT_MONO, color, renderer);
+		std::string s = std::string(text);
+		TextObject* newText = new TextObject(s.c_str(), x, y, arc::FONT_MONO, color, renderer);
+		textObjects.push_back(newText);
+	}
+
+	void Text(int text, int x, int y, Font* font, Color color) {
+		std::stringstream stream;
+		stream << text;
+		std::string s = stream.str();
+		TextObject* newText = new TextObject(s.c_str(), x, y, arc::FONT_MONO, color, renderer);
+		textObjects.push_back(newText);
+	}
+
+	void Text(std::string text, int x, int y, Font* font, Color color) {
+		TextObject* newText = new TextObject(text.c_str(), x, y, arc::FONT_MONO, color, renderer);
 		textObjects.push_back(newText);
 	}
 

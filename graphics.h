@@ -47,6 +47,9 @@ namespace arc {
 	// Returns the current application framerate.
 	int GetFramerate();
 
+	// Renders a framerate counter to the window.
+	void ShowFPS();
+
 	// Draws a single pixel to the screen at the given x and y coordinates.
 	void Point(int x, int y, Color color);
 
@@ -58,6 +61,8 @@ namespace arc {
 
 	// Render the given string to the screen using the given font and color to the given x and y position.
 	void Text(char* text, int x, int y, Font* font, Color color);
+	void Text(int text, int x, int y, Font* font, Color color);
+	void Text(std::string text, int x, int y, Font* font, Color color);
 
 	// Set background color for the window.
 	void SetBackgroundColor(Color color);
