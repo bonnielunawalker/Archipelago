@@ -1,12 +1,10 @@
 #include <stdexcept>
-#include <string>
 #include <list>
 #include <sstream>
-#include <string>
 
 #include <iostream> // TODO: Remove this, for debugging purposes only.
 
-#include "graphics.h"
+#include "include/graphics.h"
 
 namespace arc {
 	// Forward declaration of extern members.
@@ -27,7 +25,7 @@ namespace arc {
 			exit(-1);
 		}
 
-		FONT_MONO = TTF_OpenFont("C:\\mono.ttf", 11); // TODO: Change file path, this is just for debugging font loading.
+		FONT_MONO = TTF_OpenFont("../fonts/mono.ttf", 11); // TODO: Change file path, this is just for debugging font loading.
 
 		std::cout << "Finished intialization\nApplication running in " << SDL_GetBasePath() << std::endl;
 	}
@@ -101,7 +99,6 @@ namespace arc {
 
 	void Line(int x1, int y1, int x2, int y2, Color color) {
 		SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
-
 		SDL_RenderDrawLine(renderer, x1, y1, x2, y2);
 	}
 
@@ -181,7 +178,7 @@ namespace arc {
 			return;
 		}
 
-		TextObject* newText = new TextObject(s.c_str(), x, y, arc::FONT_MONO, color, renderer);
+		TextObject* newText = new TextObject(s.c_str(), x, y, font, color, renderer);
 		textObjects.push_back(newText);
 	}
 

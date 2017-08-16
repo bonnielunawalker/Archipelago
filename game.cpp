@@ -1,4 +1,4 @@
-#include "game.h"
+#include "include/game.h"
 
 #include <iostream> // TODO: Remove this, for debugging purposes only.
 #include <sstream>

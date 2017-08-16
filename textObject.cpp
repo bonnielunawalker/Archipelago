@@ -1,6 +1,6 @@
-#include "textObject.h"
+#include "include/textObject.h"
 #include <iostream>
-#include "graphics.h"
+#include "include/graphics.h"
 #include <stdexcept>
 
 namespace arc {
