@@ -148,8 +148,8 @@ namespace arc {
 		SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 
 		if (!points.empty()) {
-			std::list<Point2D>::iterator b = points.begin();
-			std::list<Point2D>::iterator e = --points.end();
+			std::list<Point2D>::iterator b = points.begin(); // Iterator starting with first element.
+			std::list<Point2D>::iterator e = --points.end(); // Iterator starting with last element.
 
 			// Draw all lines except the last one.
 			while (b != e) {

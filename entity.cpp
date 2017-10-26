@@ -27,3 +27,9 @@ Entity::Entity(arc::Point2D loc, arc::Color color) {
 void Entity::Render() {
 	arc::Polygon(_shape, location.x, location.y, _color);
 }
+
+Entity::~Entity() {
+	delete &_color;
+	delete[] &_shape;
+	delete &location;
+}

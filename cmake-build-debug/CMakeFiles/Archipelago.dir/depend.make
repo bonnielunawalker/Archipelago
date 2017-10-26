@@ -40,6 +40,7 @@ CMakeFiles/Archipelago.dir/entity.cpp.o: /usr/include/SDL2/SDL_rect.h
 CMakeFiles/Archipelago.dir/entity.cpp.o: /usr/include/SDL2/SDL_render.h
 CMakeFiles/Archipelago.dir/entity.cpp.o: /usr/include/SDL2/SDL_rwops.h
 CMakeFiles/Archipelago.dir/entity.cpp.o: /usr/include/SDL2/SDL_scancode.h
+CMakeFiles/Archipelago.dir/entity.cpp.o: /usr/include/SDL2/SDL_shape.h
 CMakeFiles/Archipelago.dir/entity.cpp.o: /usr/include/SDL2/SDL_stdinc.h
 CMakeFiles/Archipelago.dir/entity.cpp.o: /usr/include/SDL2/SDL_surface.h
 CMakeFiles/Archipelago.dir/entity.cpp.o: /usr/include/SDL2/SDL_system.h
@@ -92,6 +93,7 @@ CMakeFiles/Archipelago.dir/game.cpp.o: /usr/include/SDL2/SDL_rect.h
 CMakeFiles/Archipelago.dir/game.cpp.o: /usr/include/SDL2/SDL_render.h
 CMakeFiles/Archipelago.dir/game.cpp.o: /usr/include/SDL2/SDL_rwops.h
 CMakeFiles/Archipelago.dir/game.cpp.o: /usr/include/SDL2/SDL_scancode.h
+CMakeFiles/Archipelago.dir/game.cpp.o: /usr/include/SDL2/SDL_shape.h
 CMakeFiles/Archipelago.dir/game.cpp.o: /usr/include/SDL2/SDL_stdinc.h
 CMakeFiles/Archipelago.dir/game.cpp.o: /usr/include/SDL2/SDL_surface.h
 CMakeFiles/Archipelago.dir/game.cpp.o: /usr/include/SDL2/SDL_system.h
@@ -142,6 +144,7 @@ CMakeFiles/Archipelago.dir/graphics.cpp.o: /usr/include/SDL2/SDL_rect.h
 CMakeFiles/Archipelago.dir/graphics.cpp.o: /usr/include/SDL2/SDL_render.h
 CMakeFiles/Archipelago.dir/graphics.cpp.o: /usr/include/SDL2/SDL_rwops.h
 CMakeFiles/Archipelago.dir/graphics.cpp.o: /usr/include/SDL2/SDL_scancode.h
+CMakeFiles/Archipelago.dir/graphics.cpp.o: /usr/include/SDL2/SDL_shape.h
 CMakeFiles/Archipelago.dir/graphics.cpp.o: /usr/include/SDL2/SDL_stdinc.h
 CMakeFiles/Archipelago.dir/graphics.cpp.o: /usr/include/SDL2/SDL_surface.h
 CMakeFiles/Archipelago.dir/graphics.cpp.o: /usr/include/SDL2/SDL_system.h
@@ -194,6 +197,7 @@ CMakeFiles/Archipelago.dir/main.cpp.o: /usr/include/SDL2/SDL_rect.h
 CMakeFiles/Archipelago.dir/main.cpp.o: /usr/include/SDL2/SDL_render.h
 CMakeFiles/Archipelago.dir/main.cpp.o: /usr/include/SDL2/SDL_rwops.h
 CMakeFiles/Archipelago.dir/main.cpp.o: /usr/include/SDL2/SDL_scancode.h
+CMakeFiles/Archipelago.dir/main.cpp.o: /usr/include/SDL2/SDL_shape.h
 CMakeFiles/Archipelago.dir/main.cpp.o: /usr/include/SDL2/SDL_stdinc.h
 CMakeFiles/Archipelago.dir/main.cpp.o: /usr/include/SDL2/SDL_surface.h
 CMakeFiles/Archipelago.dir/main.cpp.o: /usr/include/SDL2/SDL_system.h
@@ -247,6 +251,7 @@ CMakeFiles/Archipelago.dir/textObject.cpp.o: /usr/include/SDL2/SDL_rect.h
 CMakeFiles/Archipelago.dir/textObject.cpp.o: /usr/include/SDL2/SDL_render.h
 CMakeFiles/Archipelago.dir/textObject.cpp.o: /usr/include/SDL2/SDL_rwops.h
 CMakeFiles/Archipelago.dir/textObject.cpp.o: /usr/include/SDL2/SDL_scancode.h
+CMakeFiles/Archipelago.dir/textObject.cpp.o: /usr/include/SDL2/SDL_shape.h
 CMakeFiles/Archipelago.dir/textObject.cpp.o: /usr/include/SDL2/SDL_stdinc.h
 CMakeFiles/Archipelago.dir/textObject.cpp.o: /usr/include/SDL2/SDL_surface.h
 CMakeFiles/Archipelago.dir/textObject.cpp.o: /usr/include/SDL2/SDL_system.h
