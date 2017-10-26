@@ -6,7 +6,7 @@
 #include "SDL.h"
 #include "SDL_ttf.h"
 #include "colors.h"
-#include "point2d.h"
+#include "point2.h"
 #include "textObject.h"
 
 namespace arc {
@@ -38,7 +38,9 @@ namespace arc {
 	extern Font* FONT_MONO;
 	static std::list<TextObject*> textObjects;
 
-	// Initialise SDL and make sure everything's working.
+	/**
+ 	* Initialises SDL and Archipelago and ensures everything is set up correctly.
+ 	*/
 	void Init();
 
 	// Create a new SDL window to render to.

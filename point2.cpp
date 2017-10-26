@@ -1,4 +1,4 @@
-#include "include/point2d.h"
+#include "point2.h"
 
 namespace arc {
 	Point2D::Point2D() {
@@ -11,7 +11,12 @@ namespace arc {
 		y = otherY;
 	}
 
-	std::ostream& operator<<(std::ostream& os, const Point2D pnt) {
+	Point2D::Point2D(const Point2D& otherPnt) {
+		x = otherPnt.x;
+		y = otherPnt.y;
+	}
+
+	std::ostream& operator<<(std::ostream& os, const Point2D& pnt) {
 		os << pnt.x << ", " << pnt.y;
 		return os;
 	}

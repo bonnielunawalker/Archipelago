@@ -13,7 +13,9 @@ namespace arc {
 
 		Point2D(int otherX, int otherY);
 
-		friend std::ostream& operator<<(std::ostream& os, const Point2D pnt);
+        Point2D(const Point2D& otherPnt);
+
+		friend std::ostream& operator<<(std::ostream& os, const Point2D& pnt);
 	};
 }
 

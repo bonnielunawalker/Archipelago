@@ -2,7 +2,7 @@
 #define AGENT_H
 
 #include "graphics.h"
-#include "point2d.h"
+#include "point2.h"
 #include <list>
 
 class Entity {
