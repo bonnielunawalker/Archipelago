@@ -1,3 +1,12 @@
+/**
+ * Archipelago
+ * textObject.h
+ *
+ * Contains text information to be rendered to an Archipelago window.
+ *
+ * @author Bryn Walker
+ */
+
 #ifndef TEXT_H
 #define TEXT_H
 

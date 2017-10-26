@@ -1,3 +1,12 @@
+/**
+ * Archipelago
+ * graphics.h
+ *
+ * Contains all of Archipelago's basic rendering methods as well as auxiliary tools for measuring performance.
+ *
+ * @author Bryn Walker
+ */
+
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
 

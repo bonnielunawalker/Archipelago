@@ -1,3 +1,12 @@
+/**
+ * Archipelago
+ * game.h
+ *
+ * Class that acts as container for game entities.
+ *
+ * @author Bryn Walker
+ */
+
 #ifndef GAME_H
 #define GAME_H
 

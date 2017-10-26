@@ -1,3 +1,12 @@
+/**
+ * Archipelago
+ * colors.h
+ *
+ * Contains definitions for several basic colors for use in Archipelago applications.
+ *
+ * @author Bryn Walker
+ */
+
 #pragma once
 
 namespace arc {

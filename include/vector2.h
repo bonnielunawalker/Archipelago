@@ -1,3 +1,13 @@
+/**
+ * Archipelago
+ * vector2.h
+ *
+ * Template class for containing positional offset data for game and graphical entities.
+ * Contains a number of helper functions for performing operations with these entities.
+ *
+ * @author Bryn Walker
+ */
+
 #ifndef VECTOR2_H
 #define VECTOR2_H
 

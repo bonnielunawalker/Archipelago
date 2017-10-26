@@ -1,3 +1,12 @@
+/**
+ * Archipelago
+ * point2.h
+ *
+ * Template class for containing positional data for game and graphical entities.
+ *
+ * @author Bryn Walker
+ */
+
 #ifndef POINT2D
 #define POINT2D
 

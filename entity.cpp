@@ -1,3 +1,12 @@
+/**
+ * Archipelago
+ * entity.h
+ *
+ * Base class that provides basic game entity behaviours. Enforces positional and rendering behaviour.
+ *
+ * @author Bryn Walker
+ */
+
 #include "include/entity.h"
 
 Entity::Entity(arc::Point2D<float> loc, arc::Color color){

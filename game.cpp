@@ -1,3 +1,12 @@
+/**
+ * Archipelago
+ * game.h
+ *
+ * Class that acts as container for game entities.
+ *
+ * @author Bryn Walker
+ */
+
 #include "include/game.h"
 
 #include <iostream> // TODO: Remove this, for debugging purposes only.

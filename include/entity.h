@@ -1,3 +1,12 @@
+/**
+ * Archipelago
+ * entity.h
+ *
+ * Base class that provides basic game entity behaviours. Enforces positional and rendering behaviour.
+ *
+ * @author Bryn Walker
+ */
+
 #ifndef AGENT_H
 #define AGENT_H
 
