@@ -39,7 +39,7 @@ namespace arc {
 		std::cout << "Finished intialization\nApplication running in " << SDL_GetBasePath() << std::endl;
 	}
 
-	void CreateWindow(char* name, int sizeX, int sizeY) {
+	void CreateWindow(char* name, float sizeX, float sizeY) {
 		// Create the window.
 		SDL_Window *tempWindow;
 		tempWindow = SDL_CreateWindow(name, 100, 100, sizeX, sizeY, SDL_WINDOW_OPENGL);
@@ -59,7 +59,7 @@ namespace arc {
 		bgColor = BLACK;
 	}
 
-	int GetFramerate() {
+	float GetFramerate() {
 		int frametimesIndex;
 		int getTicks;
 		
@@ -91,7 +91,7 @@ namespace arc {
 		// Format the result.
 		framesPerSecond = 1000.f / framesPerSecond;
 
-		return (int)framesPerSecond;
+		return framesPerSecond;
 	}
 
 	void ShowFPS() {
@@ -101,17 +101,17 @@ namespace arc {
 		Text(stream.str(), 2, 2, FONT_MONO, GREEN);
 	}
 
-	void Point(int x, int y, Color color) {
+	void Point(float x, float y, Color color) {
 		SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 		SDL_RenderDrawPoint(renderer, x, y);
 	}
 
-	void Line(int x1, int y1, int x2, int y2, Color color) {
+	void Line(float x1, float y1, float x2, float y2, Color color) {
 		SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
-		SDL_RenderDrawLine(renderer, x1, y1, x2, y2);
+		SDL_RenderDrawLine(renderer, (int)x1, (int)y1, (int)x2, (int)y2);
 	}
 
-	void Rectangle(int x1, int y1, int x2, int y2, Color color) {
+	void Rectangle(float x1, float y1, float x2, float y2, Color color) {
 		SDL_Rect rect;
 		rect.x = x1;
 		rect.y = y1;
@@ -122,7 +122,7 @@ namespace arc {
 		SDL_RenderDrawRect(renderer, &rect);
 	}
 
-	void Circle(int x, int y, int radius, Color color) {
+	void Circle(float x, float y, float radius, Color color) {
 		// Draw a circle using Bresenham's circle drawing method.
 		SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 
@@ -153,23 +153,23 @@ namespace arc {
 		}
 	}
 
-	void Polygon(std::list<Point2D> points, int x, int y, Color color) {
+	void Polygon(std::list<Point2D<float>> points, float x, float y, Color color) {
 		SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 
 		if (!points.empty()) {
-			std::list<Point2D>::iterator b = points.begin(); // Iterator starting with first element.
-			std::list<Point2D>::iterator e = --points.end(); // Iterator starting with last element.
+			std::list<Point2D<float>>::iterator b = points.begin(); // Iterator starting with first element.
+			std::list<Point2D<float>>::iterator e = --points.end(); // Iterator starting with last element.
 
 			// Draw all lines except the last one.
 			while (b != e) {
-				Point2D pnt1 = *b;
-				Point2D pnt2 = *++b;
+				Point2D<float> pnt1 = *b;
+				Point2D<float> pnt2 = *++b;
 				Line(x + pnt1.x, y + pnt1.y, x + pnt2.x, y + pnt2.y, color);
 			}
 
 			// Draw the last line.
-			Point2D pnt1 = points.back();
-			Point2D pnt2 = points.front();
+			Point2D<float> pnt1 = points.back();
+			Point2D<float> pnt2 = points.front();
 
 			Line(x + pnt1.x, y + pnt1.y, x + pnt2.x, y + pnt2.y, color);
 		}
@@ -177,7 +177,7 @@ namespace arc {
 			std::cerr << "Shapes with no points cannot be drawn." << std::endl;
 	}
 
-	void Text(char* text, int x, int y, Font* font, Color color) {
+	void Text(char* text, float x, float y, Font* font, Color color) {
 		std::string s = std::string(text);
 
 		// Make sure the string can actually be rendered.
@@ -191,7 +191,7 @@ namespace arc {
 		textObjects.push_back(newText);
 	}
 
-	void Text(int text, int x, int y, Font* font, Color color) {
+	void Text(float text, float x, float y, Font* font, Color color) {
 		std::string s = std::to_string(text);
 
 		if (s.length() == 0) {
@@ -203,7 +203,7 @@ namespace arc {
 		textObjects.push_back(newText);
 	}
 
-	void Text(std::string text, int x, int y, Font* font, Color color) {
+	void Text(std::string text, float x, float y, Font* font, Color color) {
 		if (text.length() == 0) {
 			std::cerr << "Text fields of length 0 cannot be rendered." << std::endl;
 			return;
@@ -268,8 +268,8 @@ namespace arc {
 		return quitRequested;
 	}
 
-	Point2D MousePosition() {
-		Point2D pnt = Point2D();
+	Point2D<int> MousePosition() {
+		Point2D<int> pnt = Point2D<int>();
 		SDL_GetMouseState(&pnt.x, &pnt.y);
 		return pnt;
 	}

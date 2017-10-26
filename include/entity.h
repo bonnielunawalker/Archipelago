@@ -8,14 +8,15 @@
 class Entity {
 private:
 	arc::Color _color;
-	std::list<arc::Point2D> _shape;
+	std::list<arc::Point2D<float>> _shape;
 public:
-	arc::Point2D location;
+	arc::Point2D<float> location;
 
-	Entity(int x, int y, arc::Color color);
+	Entity(arc::Point2D<float> loc, arc::Color color);
 
-	// Overloaded constructor that takes a Point2D to initialise the agent's location.
-	Entity(arc::Point2D loc, arc::Color color);
+    Entity(arc::Point2D<int> loc, arc::Color color);
+
+    Entity(float x, float y, arc::Color color);
 
 	// Render the agent to the screen.
 	void Render();

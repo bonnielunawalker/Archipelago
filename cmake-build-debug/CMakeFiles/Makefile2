@@ -66,7 +66,7 @@ CMAKE_BINARY_DIR = /home/bryn/Code/Archipelago/cmake-build-debug
 CMakeFiles/Archipelago.dir/all:
 	$(MAKE) -f CMakeFiles/Archipelago.dir/build.make CMakeFiles/Archipelago.dir/depend
 	$(MAKE) -f CMakeFiles/Archipelago.dir/build.make CMakeFiles/Archipelago.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bryn/Code/Archipelago/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target Archipelago"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/bryn/Code/Archipelago/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target Archipelago"
 .PHONY : CMakeFiles/Archipelago.dir/all
 
 # Include target in all.
@@ -76,7 +76,7 @@ all: CMakeFiles/Archipelago.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Archipelago.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bryn/Code/Archipelago/cmake-build-debug/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bryn/Code/Archipelago/cmake-build-debug/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Archipelago.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/bryn/Code/Archipelago/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/Archipelago.dir/rule

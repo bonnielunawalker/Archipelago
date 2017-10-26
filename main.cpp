@@ -1,9 +1,5 @@
 #include "include/graphics.h"
 #include "include/game.h"
-#include "include/entity.h"
-
-#include <iostream>
-#include <string>
 
 int main(int argc, char* argv[]) {
 	// Initialise archipelago and open a window.

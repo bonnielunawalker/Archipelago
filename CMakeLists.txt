@@ -10,7 +10,8 @@ find_package(Freetype REQUIRED)
 include_directories(${FREETYPE_INCLUDE_DIRS})
 include_directories(${SDL2_INCLUDE_DIR})
 
-set(SOURCE_FILES "main.cpp" "entity.cpp" "game.cpp" "graphics.cpp" "point2.cpp" "textObject.cpp" include/vector2.h)
+set(SOURCE_FILES main.cpp entity.cpp game.cpp graphics.cpp textObject.cpp include/colors.h include/entity.h
+        include/game.h include/graphics.h include/point2.h include/textObject.h include/vector2.h)
 
 add_executable(Archipelago ${SOURCE_FILES})
 target_link_libraries(Archipelago ${SDL2_LIBRARY} ${SDL2_TTF_LIBRARY} ${FREETYPE_LIBRARIES})

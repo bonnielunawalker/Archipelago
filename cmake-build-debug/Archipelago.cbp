@@ -97,13 +97,28 @@
 		<Unit filename="/home/bryn/Code/Archipelago/graphics.cpp">
 			<Option target="Archipelago"/>
 		</Unit>
+		<Unit filename="/home/bryn/Code/Archipelago/include/colors.h">
+			<Option target="Archipelago"/>
+		</Unit>
+		<Unit filename="/home/bryn/Code/Archipelago/include/entity.h">
+			<Option target="Archipelago"/>
+		</Unit>
+		<Unit filename="/home/bryn/Code/Archipelago/include/game.h">
+			<Option target="Archipelago"/>
+		</Unit>
+		<Unit filename="/home/bryn/Code/Archipelago/include/graphics.h">
+			<Option target="Archipelago"/>
+		</Unit>
+		<Unit filename="/home/bryn/Code/Archipelago/include/point2.h">
+			<Option target="Archipelago"/>
+		</Unit>
+		<Unit filename="/home/bryn/Code/Archipelago/include/textObject.h">
+			<Option target="Archipelago"/>
+		</Unit>
 		<Unit filename="/home/bryn/Code/Archipelago/include/vector2.h">
 			<Option target="Archipelago"/>
 		</Unit>
 		<Unit filename="/home/bryn/Code/Archipelago/main.cpp">
-			<Option target="Archipelago"/>
-		</Unit>
-		<Unit filename="/home/bryn/Code/Archipelago/point2.cpp">
 			<Option target="Archipelago"/>
 		</Unit>
 		<Unit filename="/home/bryn/Code/Archipelago/textObject.cpp">

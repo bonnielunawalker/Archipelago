@@ -8,6 +8,7 @@
 #include "colors.h"
 #include "point2.h"
 #include "textObject.h"
+#include "vector2.h"
 
 namespace arc {
 	// Namespace level members.
@@ -50,14 +51,14 @@ namespace arc {
  	* @param sizeX The width of the window in pixels.
  	* @param sizeY The height of the window in pixels.
  	*/
-	void CreateWindow(char* name, int sizeX, int sizeY);
+	void CreateWindow(char* name, float sizeX, float sizeY);
 
 	/**
  	* Calculates the current framerate of the application.
  	*
  	* @return Returns the current application framerate as an integer.
  	*/
-	int GetFramerate();
+	float GetFramerate();
 
 	/**
 	 * Renders the current framerate of the application to the window.
@@ -71,7 +72,7 @@ namespace arc {
 	 * @param y The y position of the pixel to be drawn.
 	 * @param color The color the pixel should be drawn with.
 	 */
-	void Point(int x, int y, Color color);
+	void Point(float x, float y, Color color);
 
 	/**
 	 * Draws a line between two x and y positions.
@@ -82,7 +83,7 @@ namespace arc {
 	 * @param y2 The y position of the second point.
 	 * @param color The color the line should be drawn with.
 	 */
-	void Line(int x1, int y1, int x2, int y2, Color color);
+	void Line(float x1, float y1, float x2, float y2, Color color);
 
 	/**
 	 * Draws a rectangle to the screen with the given top left and bottom right coordinates.
@@ -93,7 +94,7 @@ namespace arc {
 	 * @param y2 The y position of the bottom right of the rectangle.
 	 * @param color The color the rectangle should be drawn with.
 	 */
-	void Rectangle(int x1, int y1, int x2, int y2, Color color);
+	void Rectangle(float x1, float y1, float x2, float y2, Color color);
 
 	/**
 	 * Draws a circle to the screen at the given central x and y coordinates with the given radius.
@@ -103,7 +104,7 @@ namespace arc {
 	 * @param r The radius of the circle.
 	 * @param color The color the circle should be drawn with.
 	 */
-	void Circle(int x, int y, int r, Color color);
+	void Circle(float x, float y, float r, Color color);
 
     /**
      * Draw a polygon of an arbitrary number of points from the list of points provided.
@@ -114,7 +115,7 @@ namespace arc {
      * @param y The y position of the centre of the polygon.
      * @param color The color the polygon should be drawn with.
      */
-	void Polygon(std::list<Point2D> points, int x, int y, Color color);
+	void Polygon(std::list<Point2D<float>> points, float x, float y, Color color);
 
     /**
      * Draw the given string to the screen using the given font and color to the given x and y position.
@@ -136,7 +137,7 @@ namespace arc {
      * @param font The font the text will be rendered with.
      * @param color The color the string should be drawn with.
      */
-	void Text(int text, int x, int y, Font* font, Color color);
+	void Text(float text, float x, float y, Font* font, Color color);
 
     /**
      * Draw the given string to the screen using the given font and color to the given x and y position.
@@ -147,7 +148,7 @@ namespace arc {
      * @param font The font the text will be rendered with.
      * @param color The color the string should be drawn with.
      */
-	void Text(std::string text, int x, int y, Font* font, Color color);
+	void Text(std::string text, float x, float y, Font* font, Color color);
 
     /**
      * Set the background color for the window.
@@ -192,7 +193,7 @@ namespace arc {
      *
      * @return Returns a new arc::Point2D containing mouse position data.
      */
-	Point2D MousePosition();
+	Point2D<int> MousePosition();
 
     /**
      * Returns whether the user requested the window be closed.
