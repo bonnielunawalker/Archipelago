@@ -1,3 +1,12 @@
+/**
+ * Archipelago
+ * graphics.cpp
+ *
+ * Contains all of Archipelago's basic rendering methods as well as auxiliary tools for measuring performance.
+ *
+ * @author Bryn Walker
+ */
+
 #include <stdexcept>
 #include <list>
 #include <sstream>
@@ -113,7 +122,7 @@ namespace arc {
 		SDL_RenderDrawRect(renderer, &rect);
 	}
 
-	void Circle(int x1, int y1, int radius, Color color) {
+	void Circle(int x, int y, int radius, Color color) {
 		// Draw a circle using Bresenham's circle drawing method.
 		SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 
@@ -123,14 +132,14 @@ namespace arc {
 
 		while (x2 <= y2)
 		{
-			SDL_RenderDrawPoint(renderer, x1 + x2, y1 + y2);
-			SDL_RenderDrawPoint(renderer, x1 - x2, y1 + y2);
-			SDL_RenderDrawPoint(renderer, x1 + x2, y1 - y2);
-			SDL_RenderDrawPoint(renderer, x1 - x2, y1 - y2);
-			SDL_RenderDrawPoint(renderer, x1 + y2, y1 + x2);
-			SDL_RenderDrawPoint(renderer, x1 + y2, y1 - x2);
-			SDL_RenderDrawPoint(renderer, x1 - y2, y1 + x2);
-			SDL_RenderDrawPoint(renderer, x1 - y2, y1 - x2);
+			SDL_RenderDrawPoint(renderer, x + x2, y + y2);
+			SDL_RenderDrawPoint(renderer, x - x2, y + y2);
+			SDL_RenderDrawPoint(renderer, x + x2, y - y2);
+			SDL_RenderDrawPoint(renderer, x - x2, y - y2);
+			SDL_RenderDrawPoint(renderer, x + y2, y + x2);
+			SDL_RenderDrawPoint(renderer, x + y2, y - x2);
+			SDL_RenderDrawPoint(renderer, x - y2, y + x2);
+			SDL_RenderDrawPoint(renderer, x - y2, y - x2);
 
 			x2 = x2 + 1;
 
@@ -190,7 +199,7 @@ namespace arc {
 			return;
 		}
 
-		TextObject* newText = new TextObject(s.c_str(), x, y, arc::FONT_MONO, color, renderer);
+		TextObject* newText = new TextObject(s.c_str(), x, y, font, color, renderer);
 		textObjects.push_back(newText);
 	}
 
@@ -200,7 +209,7 @@ namespace arc {
 			return;
 		}
 
-		TextObject* newText = new TextObject(text.c_str(), x, y, arc::FONT_MONO, color, renderer);
+		TextObject* newText = new TextObject(text.c_str(), x, y, font, color, renderer);
 		textObjects.push_back(newText);
 	}
 

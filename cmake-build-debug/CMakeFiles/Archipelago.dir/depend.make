@@ -5,7 +5,7 @@ CMakeFiles/Archipelago.dir/entity.cpp.o: ../entity.cpp
 CMakeFiles/Archipelago.dir/entity.cpp.o: ../include/colors.h
 CMakeFiles/Archipelago.dir/entity.cpp.o: ../include/entity.h
 CMakeFiles/Archipelago.dir/entity.cpp.o: ../include/graphics.h
-CMakeFiles/Archipelago.dir/entity.cpp.o: ../include/point2d.h
+CMakeFiles/Archipelago.dir/entity.cpp.o: ../include/point2.h
 CMakeFiles/Archipelago.dir/entity.cpp.o: ../include/textObject.h
 CMakeFiles/Archipelago.dir/entity.cpp.o: /usr/include/SDL2/SDL.h
 CMakeFiles/Archipelago.dir/entity.cpp.o: /usr/include/SDL2/SDL_assert.h
@@ -58,7 +58,7 @@ CMakeFiles/Archipelago.dir/game.cpp.o: ../include/colors.h
 CMakeFiles/Archipelago.dir/game.cpp.o: ../include/entity.h
 CMakeFiles/Archipelago.dir/game.cpp.o: ../include/game.h
 CMakeFiles/Archipelago.dir/game.cpp.o: ../include/graphics.h
-CMakeFiles/Archipelago.dir/game.cpp.o: ../include/point2d.h
+CMakeFiles/Archipelago.dir/game.cpp.o: ../include/point2.h
 CMakeFiles/Archipelago.dir/game.cpp.o: ../include/textObject.h
 CMakeFiles/Archipelago.dir/game.cpp.o: /usr/include/SDL2/SDL.h
 CMakeFiles/Archipelago.dir/game.cpp.o: /usr/include/SDL2/SDL_assert.h
@@ -109,7 +109,7 @@ CMakeFiles/Archipelago.dir/game.cpp.o: /usr/include/SDL2/close_code.h
 CMakeFiles/Archipelago.dir/graphics.cpp.o: ../graphics.cpp
 CMakeFiles/Archipelago.dir/graphics.cpp.o: ../include/colors.h
 CMakeFiles/Archipelago.dir/graphics.cpp.o: ../include/graphics.h
-CMakeFiles/Archipelago.dir/graphics.cpp.o: ../include/point2d.h
+CMakeFiles/Archipelago.dir/graphics.cpp.o: ../include/point2.h
 CMakeFiles/Archipelago.dir/graphics.cpp.o: ../include/textObject.h
 CMakeFiles/Archipelago.dir/graphics.cpp.o: /usr/include/SDL2/SDL.h
 CMakeFiles/Archipelago.dir/graphics.cpp.o: /usr/include/SDL2/SDL_assert.h
@@ -161,7 +161,7 @@ CMakeFiles/Archipelago.dir/main.cpp.o: ../include/colors.h
 CMakeFiles/Archipelago.dir/main.cpp.o: ../include/entity.h
 CMakeFiles/Archipelago.dir/main.cpp.o: ../include/game.h
 CMakeFiles/Archipelago.dir/main.cpp.o: ../include/graphics.h
-CMakeFiles/Archipelago.dir/main.cpp.o: ../include/point2d.h
+CMakeFiles/Archipelago.dir/main.cpp.o: ../include/point2.h
 CMakeFiles/Archipelago.dir/main.cpp.o: ../include/textObject.h
 CMakeFiles/Archipelago.dir/main.cpp.o: ../main.cpp
 CMakeFiles/Archipelago.dir/main.cpp.o: /usr/include/SDL2/SDL.h
@@ -210,12 +210,12 @@ CMakeFiles/Archipelago.dir/main.cpp.o: /usr/include/SDL2/SDL_video.h
 CMakeFiles/Archipelago.dir/main.cpp.o: /usr/include/SDL2/begin_code.h
 CMakeFiles/Archipelago.dir/main.cpp.o: /usr/include/SDL2/close_code.h
 
-CMakeFiles/Archipelago.dir/point2d.cpp.o: ../include/point2d.h
-CMakeFiles/Archipelago.dir/point2d.cpp.o: ../point2d.cpp
+CMakeFiles/Archipelago.dir/point2.cpp.o: ../include/point2.h
+CMakeFiles/Archipelago.dir/point2.cpp.o: ../point2.cpp
 
 CMakeFiles/Archipelago.dir/textObject.cpp.o: ../include/colors.h
 CMakeFiles/Archipelago.dir/textObject.cpp.o: ../include/graphics.h
-CMakeFiles/Archipelago.dir/textObject.cpp.o: ../include/point2d.h
+CMakeFiles/Archipelago.dir/textObject.cpp.o: ../include/point2.h
 CMakeFiles/Archipelago.dir/textObject.cpp.o: ../include/textObject.h
 CMakeFiles/Archipelago.dir/textObject.cpp.o: ../textObject.cpp
 CMakeFiles/Archipelago.dir/textObject.cpp.o: /usr/include/SDL2/SDL.h

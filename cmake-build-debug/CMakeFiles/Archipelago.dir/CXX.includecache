@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+../include/point2.h
+iostream
+-
+
 /home/bryn/Code/Archipelago/entity.cpp
 include/entity.h
 /home/bryn/Code/Archipelago/include/entity.h
@@ -37,8 +41,8 @@ include/graphics.h
 /home/bryn/Code/Archipelago/include/entity.h
 graphics.h
 /home/bryn/Code/Archipelago/include/graphics.h
-point2d.h
-/home/bryn/Code/Archipelago/include/point2d.h
+point2.h
+/home/bryn/Code/Archipelago/include/point2.h
 list
 -
 
@@ -57,12 +61,12 @@ SDL_ttf.h
 /home/bryn/Code/Archipelago/include/SDL_ttf.h
 colors.h
 /home/bryn/Code/Archipelago/include/colors.h
-point2d.h
-/home/bryn/Code/Archipelago/include/point2d.h
+point2.h
+/home/bryn/Code/Archipelago/include/point2.h
 textObject.h
 /home/bryn/Code/Archipelago/include/textObject.h
 
-/home/bryn/Code/Archipelago/include/point2d.h
+/home/bryn/Code/Archipelago/include/point2.h
 iostream
 -
 
@@ -84,9 +88,9 @@ iostream
 string
 -
 
-/home/bryn/Code/Archipelago/point2d.cpp
-include/point2d.h
-/home/bryn/Code/Archipelago/include/point2d.h
+/home/bryn/Code/Archipelago/point2.cpp
+point2.h
+/home/bryn/Code/Archipelago/point2.h
 
 /home/bryn/Code/Archipelago/textObject.cpp
 include/textObject.h

@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/bryn/Code/Archipelago/game.cpp" "/home/bryn/Code/Archipelago/cmake-build-debug/CMakeFiles/Archipelago.dir/game.cpp.o"
   "/home/bryn/Code/Archipelago/graphics.cpp" "/home/bryn/Code/Archipelago/cmake-build-debug/CMakeFiles/Archipelago.dir/graphics.cpp.o"
   "/home/bryn/Code/Archipelago/main.cpp" "/home/bryn/Code/Archipelago/cmake-build-debug/CMakeFiles/Archipelago.dir/main.cpp.o"
-  "/home/bryn/Code/Archipelago/point2d.cpp" "/home/bryn/Code/Archipelago/cmake-build-debug/CMakeFiles/Archipelago.dir/point2d.cpp.o"
+  "/home/bryn/Code/Archipelago/point2.cpp" "/home/bryn/Code/Archipelago/cmake-build-debug/CMakeFiles/Archipelago.dir/point2.cpp.o"
   "/home/bryn/Code/Archipelago/textObject.cpp" "/home/bryn/Code/Archipelago/cmake-build-debug/CMakeFiles/Archipelago.dir/textObject.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

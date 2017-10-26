@@ -97,10 +97,13 @@
 		<Unit filename="/home/bryn/Code/Archipelago/graphics.cpp">
 			<Option target="Archipelago"/>
 		</Unit>
+		<Unit filename="/home/bryn/Code/Archipelago/include/vector2.h">
+			<Option target="Archipelago"/>
+		</Unit>
 		<Unit filename="/home/bryn/Code/Archipelago/main.cpp">
 			<Option target="Archipelago"/>
 		</Unit>
-		<Unit filename="/home/bryn/Code/Archipelago/point2d.cpp">
+		<Unit filename="/home/bryn/Code/Archipelago/point2.cpp">
 			<Option target="Archipelago"/>
 		</Unit>
 		<Unit filename="/home/bryn/Code/Archipelago/textObject.cpp">

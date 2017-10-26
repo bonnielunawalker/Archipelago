@@ -153,28 +153,28 @@ CMakeFiles/Archipelago.dir/graphics.cpp.o.provides: CMakeFiles/Archipelago.dir/g
 CMakeFiles/Archipelago.dir/graphics.cpp.o.provides.build: CMakeFiles/Archipelago.dir/graphics.cpp.o
 
 
-CMakeFiles/Archipelago.dir/point2d.cpp.o: CMakeFiles/Archipelago.dir/flags.make
-CMakeFiles/Archipelago.dir/point2d.cpp.o: ../point2d.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bryn/Code/Archipelago/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Archipelago.dir/point2d.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Archipelago.dir/point2d.cpp.o -c /home/bryn/Code/Archipelago/point2d.cpp
+CMakeFiles/Archipelago.dir/point2.cpp.o: CMakeFiles/Archipelago.dir/flags.make
+CMakeFiles/Archipelago.dir/point2.cpp.o: ../point2.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bryn/Code/Archipelago/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Archipelago.dir/point2.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Archipelago.dir/point2.cpp.o -c /home/bryn/Code/Archipelago/point2.cpp
 
-CMakeFiles/Archipelago.dir/point2d.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Archipelago.dir/point2d.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bryn/Code/Archipelago/point2d.cpp > CMakeFiles/Archipelago.dir/point2d.cpp.i
+CMakeFiles/Archipelago.dir/point2.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Archipelago.dir/point2.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bryn/Code/Archipelago/point2.cpp > CMakeFiles/Archipelago.dir/point2.cpp.i
 
-CMakeFiles/Archipelago.dir/point2d.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Archipelago.dir/point2d.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bryn/Code/Archipelago/point2d.cpp -o CMakeFiles/Archipelago.dir/point2d.cpp.s
+CMakeFiles/Archipelago.dir/point2.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Archipelago.dir/point2.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bryn/Code/Archipelago/point2.cpp -o CMakeFiles/Archipelago.dir/point2.cpp.s
 
-CMakeFiles/Archipelago.dir/point2d.cpp.o.requires:
+CMakeFiles/Archipelago.dir/point2.cpp.o.requires:
 
-.PHONY : CMakeFiles/Archipelago.dir/point2d.cpp.o.requires
+.PHONY : CMakeFiles/Archipelago.dir/point2.cpp.o.requires
 
-CMakeFiles/Archipelago.dir/point2d.cpp.o.provides: CMakeFiles/Archipelago.dir/point2d.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Archipelago.dir/build.make CMakeFiles/Archipelago.dir/point2d.cpp.o.provides.build
-.PHONY : CMakeFiles/Archipelago.dir/point2d.cpp.o.provides
+CMakeFiles/Archipelago.dir/point2.cpp.o.provides: CMakeFiles/Archipelago.dir/point2.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Archipelago.dir/build.make CMakeFiles/Archipelago.dir/point2.cpp.o.provides.build
+.PHONY : CMakeFiles/Archipelago.dir/point2.cpp.o.provides
 
-CMakeFiles/Archipelago.dir/point2d.cpp.o.provides.build: CMakeFiles/Archipelago.dir/point2d.cpp.o
+CMakeFiles/Archipelago.dir/point2.cpp.o.provides.build: CMakeFiles/Archipelago.dir/point2.cpp.o
 
 
 CMakeFiles/Archipelago.dir/textObject.cpp.o: CMakeFiles/Archipelago.dir/flags.make
@@ -207,7 +207,7 @@ Archipelago_OBJECTS = \
 "CMakeFiles/Archipelago.dir/entity.cpp.o" \
 "CMakeFiles/Archipelago.dir/game.cpp.o" \
 "CMakeFiles/Archipelago.dir/graphics.cpp.o" \
-"CMakeFiles/Archipelago.dir/point2d.cpp.o" \
+"CMakeFiles/Archipelago.dir/point2.cpp.o" \
 "CMakeFiles/Archipelago.dir/textObject.cpp.o"
 
 # External object files for target Archipelago
@@ -217,7 +217,7 @@ Archipelago: CMakeFiles/Archipelago.dir/main.cpp.o
 Archipelago: CMakeFiles/Archipelago.dir/entity.cpp.o
 Archipelago: CMakeFiles/Archipelago.dir/game.cpp.o
 Archipelago: CMakeFiles/Archipelago.dir/graphics.cpp.o
-Archipelago: CMakeFiles/Archipelago.dir/point2d.cpp.o
+Archipelago: CMakeFiles/Archipelago.dir/point2.cpp.o
 Archipelago: CMakeFiles/Archipelago.dir/textObject.cpp.o
 Archipelago: CMakeFiles/Archipelago.dir/build.make
 Archipelago: /usr/lib/libSDL2.so
@@ -236,7 +236,7 @@ CMakeFiles/Archipelago.dir/requires: CMakeFiles/Archipelago.dir/main.cpp.o.requi
 CMakeFiles/Archipelago.dir/requires: CMakeFiles/Archipelago.dir/entity.cpp.o.requires
 CMakeFiles/Archipelago.dir/requires: CMakeFiles/Archipelago.dir/game.cpp.o.requires
 CMakeFiles/Archipelago.dir/requires: CMakeFiles/Archipelago.dir/graphics.cpp.o.requires
-CMakeFiles/Archipelago.dir/requires: CMakeFiles/Archipelago.dir/point2d.cpp.o.requires
+CMakeFiles/Archipelago.dir/requires: CMakeFiles/Archipelago.dir/point2.cpp.o.requires
 CMakeFiles/Archipelago.dir/requires: CMakeFiles/Archipelago.dir/textObject.cpp.o.requires
 
 .PHONY : CMakeFiles/Archipelago.dir/requires

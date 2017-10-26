@@ -3,7 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Archipelago.dir/entity.cpp.o"
   "CMakeFiles/Archipelago.dir/game.cpp.o"
   "CMakeFiles/Archipelago.dir/graphics.cpp.o"
-  "CMakeFiles/Archipelago.dir/point2d.cpp.o"
+  "CMakeFiles/Archipelago.dir/point2.cpp.o"
   "CMakeFiles/Archipelago.dir/textObject.cpp.o"
   "Archipelago.pdb"
   "Archipelago"

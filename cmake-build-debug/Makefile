@@ -231,32 +231,32 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/Archipelago.dir/build.make CMakeFiles/Archipelago.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-point2d.o: point2d.cpp.o
+point2.o: point2.cpp.o
 
-.PHONY : point2d.o
+.PHONY : point2.o
 
 # target to build an object file
-point2d.cpp.o:
-	$(MAKE) -f CMakeFiles/Archipelago.dir/build.make CMakeFiles/Archipelago.dir/point2d.cpp.o
-.PHONY : point2d.cpp.o
+point2.cpp.o:
+	$(MAKE) -f CMakeFiles/Archipelago.dir/build.make CMakeFiles/Archipelago.dir/point2.cpp.o
+.PHONY : point2.cpp.o
 
-point2d.i: point2d.cpp.i
+point2.i: point2.cpp.i
 
-.PHONY : point2d.i
+.PHONY : point2.i
 
 # target to preprocess a source file
-point2d.cpp.i:
-	$(MAKE) -f CMakeFiles/Archipelago.dir/build.make CMakeFiles/Archipelago.dir/point2d.cpp.i
-.PHONY : point2d.cpp.i
+point2.cpp.i:
+	$(MAKE) -f CMakeFiles/Archipelago.dir/build.make CMakeFiles/Archipelago.dir/point2.cpp.i
+.PHONY : point2.cpp.i
 
-point2d.s: point2d.cpp.s
+point2.s: point2.cpp.s
 
-.PHONY : point2d.s
+.PHONY : point2.s
 
 # target to generate assembly for a file
-point2d.cpp.s:
-	$(MAKE) -f CMakeFiles/Archipelago.dir/build.make CMakeFiles/Archipelago.dir/point2d.cpp.s
-.PHONY : point2d.cpp.s
+point2.cpp.s:
+	$(MAKE) -f CMakeFiles/Archipelago.dir/build.make CMakeFiles/Archipelago.dir/point2.cpp.s
+.PHONY : point2.cpp.s
 
 textObject.o: textObject.cpp.o
 
@@ -306,9 +306,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... point2d.o"
-	@echo "... point2d.i"
-	@echo "... point2d.s"
+	@echo "... point2.o"
+	@echo "... point2.i"
+	@echo "... point2.s"
 	@echo "... textObject.o"
 	@echo "... textObject.i"
 	@echo "... textObject.s"

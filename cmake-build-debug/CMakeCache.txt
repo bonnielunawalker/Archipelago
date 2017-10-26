@@ -340,7 +340,7 @@ CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding Freetype
-FIND_PACKAGE_MESSAGE_DETAILS_Freetype:INTERNAL=[/usr/lib/libfreetype.so][/usr/include/freetype2][v2.8.0()]
+FIND_PACKAGE_MESSAGE_DETAILS_Freetype:INTERNAL=[/usr/lib/libfreetype.so][/usr/include/freetype2][v2.8.1()]
 //ADVANCED property for variable: FREETYPE_INCLUDE_DIR_freetype2
 FREETYPE_INCLUDE_DIR_freetype2-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: FREETYPE_INCLUDE_DIR_ft2build
