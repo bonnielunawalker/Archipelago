@@ -14,7 +14,7 @@
 
 Game::Game()
 {
-	_entities = std::list<Entity*>();
+	_entities = std::vector<Entity*>();
 }
 
 void Game::AddEntity(Entity* agent) {

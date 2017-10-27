@@ -10,7 +10,7 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
 
-#include <list>
+#include <vector>
 
 #include "SDL.h"
 #include "SDL_ttf.h"
@@ -46,7 +46,7 @@ namespace arc {
 	// Text rendering definitions.
 	typedef TTF_Font Font;
 	extern Font* FONT_MONO;
-	static std::list<TextObject*> textObjects;
+	static std::vector<TextObject*> textObjects;
 
 	/**
  	* Initialises SDL and Archipelago and ensures everything is set up correctly.
@@ -61,6 +61,11 @@ namespace arc {
  	* @param sizeY The height of the window in pixels.
  	*/
 	void CreateWindow(char* name, float sizeX, float sizeY);
+
+	/**
+	 * Loads all font files that can be used by the application. Only needs to be run once.
+	*/
+	void LoadFonts();
 
 	/**
  	* Calculates the current framerate of the application.
@@ -106,6 +111,17 @@ namespace arc {
 	void Rectangle(float x1, float y1, float x2, float y2, Color color);
 
 	/**
+	* Draws a filled rectangle to the screen with the given top left and bottom right coordinates.
+	*
+	* @param x1 The x position of the top left of the rectangle.
+	* @param y1 The y position of the top left of the rectangle.
+	* @param x2 The x position of the bottom right of the rectangle.
+	* @param y2 The y position of the bottom right of the rectangle.
+	* @param color The color the rectangle should be drawn and filled with.
+	*/
+	void FillRectangle(float x1, float y1, float x2, float y2, Color color);
+
+	/**
 	 * Draws a circle to the screen at the given central x and y coordinates with the given radius.
 	 *
 	 * @param x The x position of the centre of the circle.
@@ -115,16 +131,26 @@ namespace arc {
 	 */
 	void Circle(float x, float y, float r, Color color);
 
+	/**
+	* Draws a filled circle to the screen at the given central x and y coordinates with the given radius.
+	*
+	* @param x The x position of the centre of the circle.
+	* @param y The y position of the centre of the circle.
+	* @param r The radius of the circle.
+	* @param color The color the circle should be drawn and filled with.
+	*/
+	void FillCircle(float x, float y, float r, Color color);
+
     /**
-     * Draw a polygon of an arbitrary number of points from the list of points provided.
+     * Draw a polygon of an arbitrary number of points from the collection of points provided.
      * Points are considered relative to the x and y coordinates given.
      *
-     * @param points The list of points to be drawn.
+     * @param points The collection of points to be drawn.
      * @param x The x position of the centre of the polygon.
      * @param y The y position of the centre of the polygon.
      * @param color The color the polygon should be drawn with.
      */
-	void Polygon(std::list<Point2D<float>> points, float x, float y, Color color);
+	void Polygon(std::vector<Point2D<float>> points, float x, float y, Color color);
 
     /**
      * Draw the given string to the screen using the given font and color to the given x and y position.

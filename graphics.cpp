@@ -8,7 +8,7 @@
  */
 
 #include <stdexcept>
-#include <list>
+#include <vector>
 #include <sstream>
 
 #include <iostream> // TODO: Remove this, for debugging purposes only.
@@ -34,7 +34,7 @@ namespace arc {
 			exit(-1);
 		}
 
-		FONT_MONO = TTF_OpenFont("../fonts/mono.ttf", 11); // TODO: Change file path, this is just for debugging font loading.
+		LoadFonts();
 
 		std::cout << "Finished intialization\nApplication running in " << SDL_GetBasePath() << std::endl;
 	}
@@ -57,6 +57,10 @@ namespace arc {
 		window = tempWindow;
 		renderer = tempRenderer;
 		bgColor = BLACK;
+	}
+
+	void LoadFonts() {
+		FONT_MONO = TTF_OpenFont("fonts/mono.ttf", 11);
 	}
 
 	float GetFramerate() {
@@ -95,7 +99,7 @@ namespace arc {
 	}
 
 	void ShowFPS() {
-		int fps = GetFramerate();
+		int fps = (int)GetFramerate();
 		std::stringstream stream;
 		stream << "FPS: " << fps;
 		Text(stream.str(), 2, 2, FONT_MONO, GREEN);
@@ -122,13 +126,24 @@ namespace arc {
 		SDL_RenderDrawRect(renderer, &rect);
 	}
 
+	void FillRectangle(float x1, float y1, float x2, float y2, Color color) {
+		SDL_Rect rect;
+		rect.x = x1;
+		rect.y = y1;
+		rect.h = x2 - x1;
+		rect.w = y2 - y1;
+
+		SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+		SDL_RenderFillRect(renderer, &rect);
+	}
+
 	void Circle(float x, float y, float radius, Color color) {
-		// Draw a circle using Bresenham's circle drawing method.
+		// Draw a circle using Bresenham's circle drawing algorithm.
 		SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 
 		int x2 = 0;
 		int y2 = radius;
-		int p = 3 - (2 * radius);
+		int d = 3 - (2 * radius);
 
 		while (x2 <= y2)
 		{
@@ -143,22 +158,48 @@ namespace arc {
 
 			x2 = x2 + 1;
 
-			if (p<0)
-				p = p + 4 * (x2)+6;
+			if (d < 0)
+				d = d + 4 * (x2)+6;
 			else
 			{
-				p = p + 4 * (x2 - y2) + 10;
+				d = d + 4 * (x2 - y2) + 10;
 				y2 = y2 - 1;
 			}
 		}
 	}
 
-	void Polygon(std::list<Point2D<float>> points, float x, float y, Color color) {
+	void FillCircle(float x, float y, float radius, Color color) {
+		SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+
+		int x2 = 0;
+		int y2 = radius;
+		int d = 3 - (2 * radius);
+
+		while (x2 <= y2)
+		{
+			SDL_RenderDrawLine(renderer, x + y2, y + x2, x + y2, y - x2);
+			SDL_RenderDrawLine(renderer, x - y2, y + x2, x - y2, y - x2);
+			SDL_RenderDrawLine(renderer, x + x2, y + y2, x + x2, y - y2);
+			SDL_RenderDrawLine(renderer, x - x2, y - y2, x - x2, y + y2);
+
+			x2 = x2 + 1;
+
+			if (d < 0)
+				d = d + 4 * (x2)+6;
+			else
+			{
+				d = d + 4 * (x2 - y2) + 10;
+				y2 = y2 - 1;
+			}
+		}
+	}
+
+	void Polygon(std::vector<Point2D<float>> points, float x, float y, Color color) {
 		SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 
 		if (!points.empty()) {
-			std::list<Point2D<float>>::iterator b = points.begin(); // Iterator starting with first element.
-			std::list<Point2D<float>>::iterator e = --points.end(); // Iterator starting with last element.
+			std::vector<Point2D<float>>::iterator b = points.begin(); // Iterator starting with first element.
+			std::vector<Point2D<float>>::iterator e = --points.end(); // Iterator starting with last element.
 
 			// Draw all lines except the last one.
 			while (b != e) {

@@ -25,9 +25,9 @@ Entity::Entity(arc::Point2D<int> loc, arc::Color color) : Entity(arc::Point2D<fl
 Entity::Entity(float x, float y, arc::Color color) : Entity(arc::Point2D<float>(x, y), color) {}
 
 void Entity::Render() {
-	arc::Polygon(_shape, location.x, location.y, _color);
+	arc::FillCircle(location.x, location.y, 50, _color);
 }
 
 Entity::~Entity() {
-	return; // TODO: This is currently a NOP. Fix this.
+	return; // TODO: This is currently a NOP. Replace it with an actual destructor.
 }

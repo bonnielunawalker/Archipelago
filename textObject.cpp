@@ -31,6 +31,10 @@ namespace arc {
 	TextObject::~TextObject() {
 		SDL_FreeSurface(_surface);
 		SDL_DestroyTexture(_texture);
+
+		//delete &_surface; // TODO: Find a way to delete these properly
+		//delete &_texture;
+		//delete &_rect;
 	}
 
 	void TextObject::Render(SDL_Renderer* renderer) {

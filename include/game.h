@@ -10,12 +10,12 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include <list>
+#include <vector>
 #include "entity.h"
 
 class Game {
 private:
-	std::list<Entity*> _entities;
+	std::vector<Entity*> _entities;
 public:
 	Game();
 

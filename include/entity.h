@@ -12,12 +12,12 @@
 
 #include "graphics.h"
 #include "point2.h"
-#include <list>
+#include <vector>
 
 class Entity {
 private:
 	arc::Color _color;
-	std::list<arc::Point2D<float>> _shape;
+	std::vector<arc::Point2D<float>> _shape;
 public:
 	arc::Point2D<float> location;
 
